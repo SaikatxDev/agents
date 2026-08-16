@@ -6,10 +6,11 @@ from dotenv import load_dotenv
 import gradio as gr
 
 load_dotenv(override=True)
+google_api_key=os.getenv("GOOGLE_API_KEY")
 
-MODEL_NAME = "gpt-5.4-mini"
+MODEL_NAME = "gemini-3.6-flash"
 
-openai = OpenAI()
+GoogleAI = OpenAI(base_url="https://generativelanguage.googleapis.com/v1beta/openai/", api_key=google_api_key)
 
 system = [{"role": "system", "content": TWIN_SYSTEM_PROMPT}]
 
